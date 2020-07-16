@@ -1,0 +1,90 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>316</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_nav" id="home_nav"&gt;
+&lt;nav class="navbar navbar-default"&gt;
+&lt;div class="container"&gt;
+&lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
+&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a class="navbar-brand" href="/"&gt;&lt;img src="{$CssDir/}images/logo.svg" alt="{$SiteName/}" /&gt;&lt;/a&gt;
+&lt;div class="home_logo_text"&gt;&lt;span class="site_span"&gt;上海&lt;/span&gt; &lt;span class="site_ch"&gt;[切换城市]&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+&lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+&lt;ul class="nav navbar-nav"&gt;
+&lt;li&gt;&lt;a href="/default.aspx"&gt;主页&lt;/a&gt;&lt;/li&gt;
+&lt;li class="dropdown"&gt;
+&lt;a href="{ZL:GetNodeLinkUrl(1)/}"&gt;邂逅 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="#"&gt;喜欢&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;不喜欢&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li class="dropdown"&gt;
+&lt;a href="{ZL:GetNodeLinkUrl(2)/}"&gt;互动 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(13)/}"&gt;最新活动&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(14)/}"&gt;往期活动&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="/user/Message/Message"&gt;消息&lt;/a&gt;&lt;/li&gt;
+&lt;li class="dropdown"&gt;
+&lt;a href="{ZL:GetNodeListUrl(9)/}"&gt;搜索发现 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeListUrl(9)/}"&gt;搜索&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(8)/}"&gt;发现&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(3)/}"&gt;红娘&lt;/a&gt;&lt;/li&gt;
+&lt;li class="dropdown"&gt;
+&lt;a href="#"&gt;我的美荷 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="#"&gt;我的资料&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;择偶意向&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Info/UserBase"&gt;账号设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="javascript:;" onClick="LogoutFun();"&gt;退出&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li class="home_register"&gt;&lt;a href="/User/Register"&gt;注册&lt;/a&gt;&lt;/li&gt;
+&lt;li class="home_login"&gt;&lt;a href="/User/info/UserBase?sel=Tabs0"&gt;登录&lt;/a&gt;&lt;/li&gt;
+&lt;li class="home_user hidden"&gt;&lt;a href="/User/info/UserBase?sel=Tabs0"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class="home_logout hidden"&gt;&lt;a href="javascript:;" onClick="LogoutFun();"&gt;退出&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+&lt;/div&gt;&lt;!-- /.container-fluid --&gt;
+&lt;/nav&gt;
+&lt;/div&gt;
+&lt;!--头部结束--&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

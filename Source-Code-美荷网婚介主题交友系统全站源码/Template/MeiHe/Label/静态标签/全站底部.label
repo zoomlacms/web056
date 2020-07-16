@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>317</LabelID>
+    <LabelName>全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_footer"&gt;
+&lt;div class="container"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(1)/}"&gt;关于美荷&lt;/a&gt;&lt;/li&gt;
+&lt;li class="hidden"&gt;&lt;a href="{ZL:GetNodeLinkUrl(11)/}"&gt;线下门店&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(2)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(3)/}"&gt;招贤纳士&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(4)/}"&gt;帮助中心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(5)/}"&gt;服务条款&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(6)/}"&gt;隐私保护&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(7)/}"&gt;交友安全&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/Guest"&gt;意见反馈&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetLastinfo(6)/}"&gt;网站地图&lt;/a&gt;&lt;/li&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;/ul&gt;
+&lt;p&gt;客服微信：meiheapp   客服邮箱：service@meiheapp.com&lt;/p&gt;
+&lt;div&gt;{$Copyright/}&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

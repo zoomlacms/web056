@@ -1,0 +1,66 @@
+﻿@using System.Data
+@using ZoomLa.Model
+@using ZoomLa.Model.Content
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model ZoomLaCMS.Models.Field.VM_FieldModel
+@foreach (DataRow dr in Model.fieldDT.Rows)
+{
+    if (DataConverter.CBool(dr["IsShow"].ToString()))
+    {
+
+        Model.fieldMod = new M_ModelField().GetModelFromReader(dr);
+        <tr class="fd_tr fd_tr_texttype">
+            <td class="fd_td_l">
+                 @if (Model.fieldMod.IsNotNull)
+                {<span class="fd_item_req">*</span>}
+                <span>@(Model.fieldMod.FieldAlias)</span>：
+            
+        </td>
+        <td class="fd_td_r">
+            @try
+            {
+                if (Model.config.Mode == ModelConfig.SMode.PreView)
+                {
+                    switch (Model.fieldMod.FieldType)
+                    {
+                        case "Images":
+                        case "MultiPicType":
+                            @Html.Partial("Fields/View_Images", Model);
+                            break;
+                        case "PicType":
+                        case "autothumb":
+                        case "CameraType":
+                        case "SwfFileUpload":
+                            @Html.Partial("Fields/View_Default", Model);
+                            break;
+                        default:
+                            @Html.Partial("Fields/View_Default", Model);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (Model.fieldMod.FieldType)
+                    {
+                        case "MultiPicType":
+                            @Html.Partial("Fields/Images", Model)
+                            break;
+                        default:
+                            @Html.Partial("Fields/" + Model.fieldMod.FieldType, Model)
+                            break;
+                    }
+                }
+                <span>@Model.fieldMod.FieldTips</span>
+                <div>@Model.fieldMod.Description</div>
+            }
+            catch (Exception ex)
+            { <div style="color:red;">@ex.Message</div>;
+            }
+        </td>
+    </tr>
+    }
+}
+<style type="text/css">
+ .fd_item_req { color: #ff0000; }
+</style>

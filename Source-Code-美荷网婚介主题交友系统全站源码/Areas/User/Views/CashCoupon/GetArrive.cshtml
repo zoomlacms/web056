@@ -1,0 +1,33 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@using ZoomLa.Common
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    
+}
+@section head{<title>优惠券领取</title>}
+@section content{
+    <div id="pageflag" data-nav="group" data-ban="ArriveManage"></div>
+    <form method="post" action="@MVCHelper.GetAction("Arrive_Get",Request)" id="arrive_form">
+        <div class="container arrive">
+        <ol class="breadcrumb">
+            <li><a href="/User/">会员中心</a></li>
+            <li><a href="ArriveManage">我的优惠券</a></li>
+            <li>领取优惠券</li>
+        </ol>
+            <div class="margin_t5">
+                @Html.Partial("GetArrive_List", Model)
+            </div>
+    </div>
+    </form>
+    
+}
+@section script{
+<script src="/JS/Modal/APIResult.js"></script>
+<script>  
+    function getArrive(flow) {
+        $("#flow").val(flow);
+        $("#arrive_form").submit();
+    }
+</script>
+}

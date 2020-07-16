@@ -1,0 +1,47 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>351</LabelID>
+    <LabelName>会员发消息</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="getMsg" id="dzh"&gt;
+&lt;div class="getMsg_div"&gt;
+&lt;a href="javascript:;" onClick="cloMes();"&gt;&lt;i class="fa fa-close"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;label&gt;&lt;input name="title" type="radio" checked="checked"&gt; &lt;span&gt;你好，很高兴认识你。 看了你的资料和照片很想跟你做个朋友&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input name="title" type="radio"&gt; &lt;span&gt;你是我心仪的类型，期待收到你的回复&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input name="title" type="radio"&gt; &lt;span&gt;第一眼见到你的照片就有点心动的感觉，这就是眼缘吧。期待你的回复&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input name="title" type="radio"&gt; &lt;span&gt;可以先看看我的资料，如果还行，希望彼此可以多接触看看。&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;li&gt;&lt;label&gt;&lt;input name="title" type="radio"&gt; &lt;span&gt;你好，可以交个朋友吗？&lt;/span&gt;&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="getMsg_btn"&gt;&lt;a class="btn btn-warning" onClick="GetMessage();"&gt;打招呼&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="getMsg" id="fxx"&gt;
+&lt;div class="getMsg_div"&gt;
+&lt;a href="javascript:;" onClick="cloMes();"&gt;&lt;i class="fa fa-close"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;textarea rows="6" id="mes" class="form-contro" placeholder="请输入要发送的消息" style="width:50vh"&gt;&lt;/textarea&gt;
+&lt;div class="getMsg_btn"&gt;&lt;a class="btn btn-warning" onClick="SetMessage();"&gt;发消息&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+</NewDataSet>

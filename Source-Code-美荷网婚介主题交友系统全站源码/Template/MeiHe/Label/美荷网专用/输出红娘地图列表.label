@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>366</LabelID>
+    <LabelName>输出红娘地图列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|ShowNum,10,1,调用信息数</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_hnmx ON ZL_CommonModel.ItemID=ZL_C_hnmx.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_C_hnmx.maps,ZL_C_hnmx.synopsis</LabelField>
+    <LabelWhere>(NodeID=@NodeID or  zL_CommonModel.FirstNodeID=@NodeID)  And ZL_CommonModel.Status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+var pt = new BMap.Point({Field="maps"/});//创建个性图标开始
+var myIcon = new BMap.Icon("{$CssDir/}images/ico.png", new BMap.Size(55,55));
+var marker{Field="GeneralID"/} = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+map.addOverlay(marker{Field="GeneralID"/});              // 将标注添加到地图中
+var infoWindow{Field="GeneralID"/} = new BMap.InfoWindow("&lt;p style='font-size:14px;'&gt;&lt;a href='{ZL:GetInfoUrl({Field="GeneralID"/})/}' target='_blank'&gt;{Field="Title"/}&lt;/a&gt;:{Field="synopsis"/}&lt;/p&gt;&lt;p style='font-size:14px;'&gt;点击红娘名字立即预约&lt;/p&gt;");//图标说明
+marker{Field="GeneralID"/}.addEventListener("click", function(){this.openInfoWindow(infoWindow{Field="GeneralID"/});});
+
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_hnmx"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

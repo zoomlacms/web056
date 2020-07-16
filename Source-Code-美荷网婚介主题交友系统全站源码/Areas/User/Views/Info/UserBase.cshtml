@@ -1,0 +1,458 @@
+﻿@using ZoomLa.Model
+@using ZoomLa.BLL
+@using ZoomLa.Controls
+@{
+
+    M_UserInfo mu = ViewBag.mu;
+    M_Uinfo basemu = ViewBag.basemu;
+}
+@section head{
+<title>美荷网-我的美荷</title>
+<script src="/JS/ICMS/area.js"></script>
+<script src="/JS/Controls/ZL_PCC.js"></script>
+<style>
+.u_main_content { padding-bottom:0;}
+.text_100{width:100px;min-width:100px;}
+.btn_green .nav-tabs li { width:25%;}
+.btn_green .nav-tabs>li>a { background:none; border:none; padding-right:0; padding-left:0; border-bottom:2px solid #facabe; text-align:center; color:#2f302a; margin-right:0;}
+.btn_green .nav-tabs>li.active>a, .btn_green .nav-tabs>li.active>a:focus, .btn_green .nav-tabs>li.active>a:hover { background: none; border:none; margin-right:0; border-bottom:2px solid #fe4f22;}
+.hobby .media-left { background:#a5c401; color:#FFF; padding-right:1em; padding-left:1em; font-size:1.3em; width:20em; text-align:center;}
+.hobby .blue { background:#00bfff;}
+.hobby .red { background:#ff8c8d;}
+.hobby .yellow { background:#f7b239;}
+.hobby .media-body { padding-left:1em;}
+.hobby .media-body ul { margin-bottom:0;}
+.hobby .media-body li { position:relative; float:left; width:16%; margin-bottom:0.5em;} 
+.hobby .media-body li+li { margin-left:0.8%;}
+.hobby .media-body li:nth-child(6n+1) { margin-left:0;}
+.hobby .media-body li a { display:block;}
+.hobby .media-body li a img { width:100%;}
+.hobby .media-body li:hover div { position:absolute; top:0; left:0; background:url(/Template/MeiHe/style/images/user_mu.png) center center no-repeat; background-size:cover; width:100%; height:100%;}
+.hobby .media-body li div.active { position:absolute; top:0; left:0; background:url(/Template/MeiHe/style/images/user_click.png) center center no-repeat; background-size:cover; width:100%; height:100%;}
+</style>
+}
+@section content{
+<div class="container">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+<div class="user_info">
+<a href="/user/Info/UserBase?sel=Tabs1" class="user_info_face"><img src="@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"获取当前用户头像\"/}"))" alt="" onerror="javascript:this.src='/images/userface/noface.png'"/></a>
+<p>
+<a href="/User/Info/UserBase?sel=Tabs1">上传照片</a>
+<a href="/User/Info/UserBase?sel=Tabs3">编辑资料</a>
+</p>
+<div><a href="#">我的等级：</a></div>
+<ul>
+<li><a href="#">1 <span>消息</span></a></li>
+<li><a href="#">1 <span>美荷豆</span></a></li>
+<li><a href="#">1 <span>订单</span></a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="user_server">
+<div class="user_server_tit">推荐服务</div>
+<ul>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"首页输出推荐服务\" NodeID=\"7\" ShowNum=\"10\" /}"))
+</ul>
+</div>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+<div id="pageflag" data-nav="home" data-ban="UserInfo"></div>
+<ol class="breadcrumb">
+<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+<li><a href="@Url.Action("UserInfo", "info")">账户管理</a></li>
+<li class="active">基本信息</li>
+</ol>
+<form action="@MVCHelper.GetAction(Url.Action("UserBase_Edit","Info"),Request)" method="post">
+<div class="btn_green">
+<ul class="nav nav-tabs">
+<li class="Tabs0"><a href="/User/Info/UserBase?sel=Tabs0">基本信息</a></li>           
+<li class="Tabs1"><a href="UserBase?sel=Tabs1">头像设置</a></li>
+<li class="Tabs2"><a href="UserBase?sel=Tabs2">自我介绍</a></li>
+<li class="Tabs3"><a href="UserBase?sel=Tabs3">详细资料</a></li>
+<li class="Tabs4 hidden"><a href="UserBase?sel=Tabs4">个人喜好</a></li>
+</ul>
+    <table class="table table-striddped table-bordered" stlye="margin-top:1em;">
+        <tbody id="Tabs0">
+            <tr>
+                <td class="text-right">真实姓名： </td>
+                <td>
+                    <input type="text" id="tbTrueName" name="tbTrueName" class="form-control text_md" value="@mu.TrueName" />
+                </td>
+                <td class="text-right">昵称： </td>
+                <td>
+                    <input type="text" id="txtHonName" name="txtHonName" class="form-control text_md required" value="@mu.HoneyName"  />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">出生日期： </td>
+                <td>
+                    <input type="text" id="tbBirthday" name="tbBirthday" class="form-control text_md" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'});" value="@basemu.BirthDay" />
+                </td>
+                <td class="text-right">办公电话： </td>
+                <td>
+                    <input type="text" id="tbOfficePhone " name="tbOfficePhone" class="form-control text_md" title="请输入数字"  value="@basemu.OfficePhone"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">家庭电话： </td>
+                <td>
+                    <input type="text" id="tbHomePhone" name="tbHomePhone" class="form-control text_md" title="请输入区位号-数字！" value="@basemu.HomePhone" />
+                </td>
+                <td class="text-right">传真： </td>
+                <td>
+                    <input type="text" id="tbFax" name="tbFax" class="form-control text_md" title="只能输入整数" value="@basemu.Fax" />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">手机号码： </td>
+                <td>
+                    <input type="text" disabled="disabled" id="Mobile_L" name="Mobile_L" oninvalid="@basemu.Mobile" class="form-control text_md" value="@basemu.Mobile"/>
+                    <a href="@Url.Action("Mobile","Change")" title="修改手机号" class="btn btn-info">修改手机号</a>
+                </td>
+                <td class="text-right">邮箱：</td>
+                <td>
+                    <input type="text" disabled="disabled" id="Email_L" name="Email_L" value="@mu.Email" class="form-control text_md" />
+                    <a href="@Url.Action("Email","Change")" title="修改邮箱" class="btn btn-info">修改邮箱</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">所属城市： </td>
+                <td>
+                    <select id="tbProvince" class="form-control text_100"></select>
+                    <select id="tbCity" class="form-control text_100"></select>
+                    <select id="tbCounty" class="form-control text_100"></select>
+                    <input id="address" name="address" type="hidden" value="@basemu.Province,@basemu.City,@basemu.County" />
+                </td>
+                <td class="text-right">联系地址： </td>
+                <td>
+                    <input type="text" id="tbAddress" name="tbAddress" class="form-control text_md" value="@basemu.Address" />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">邮政编码： </td>
+                <td>
+                    <input type="text" id="tbZipCode" name="tbZipCode" class="form-control text_md" title="只能输入正确的邮政编码"  value="@basemu.ZipCode"/>
+                </td>
+                <td class="text-right">身份证号码： </td>
+                <td>
+                    <input type="text" id="tbIDCard" name="tbIDCard" class="form-control text_md idcard" style="columns:30;" title="请输入正确身份证号" value="@basemu.IDCard" />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">个人主页： </td>
+                <td>
+                    <input type="text" id="tbHomepage" name="tbHomepage" class="form-control text_md" value="@basemu.HomePage" style="columns:30;"  />
+                </td>
+                <td class="text-right">QQ号码： </td>
+                <td>
+                    <input type="text" id="tbQQ" name="tbQQ" class="form-control text_md" title="只接受数字输入" value="@basemu.QQ" />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">性别： </td>
+                <td>
+                    @MVCHelper.H_Radios("tbUserSex", "男,女".Split(','), "1,0".Split(','), basemu.UserSex ? "1" : "0")
+                </td>
+                <td class="text-right">职务：</td>
+                <td>
+                    <input type="text" id="Position" name="Position" class="form-control text_md" value="@basemu.Position" />
+            </tr>
+            <tr>
+                <td class="text-right">公司名：</td>
+                <td>
+                    <input type="text" id="CompanyName" name="CompanyName" class="form-control text_300" value="@basemu.CompanyName" />
+                </td>
+                <td class="text-right">微信账号： </td>
+                <td>
+                    <input type="text" id="tbUC" name="tbUC" class="form-control text_md" title="只接受数字输入" value="@basemu.UC" />
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right">隐私设定： </td>
+                <td>
+                    @MVCHelper.H_Radios("Privating_rad", new string[] { "公开信息", "只对好友公开", "完成保密" }, "0,1,2".Split(','), basemu.Privating.ToString())
+                </td>
+            </tr>
+        </tbody>
+        <tbody id="Tabs1" style="display:none;">
+            <tr>
+               <td colspan="2">
+	        @Html.Partial("Comp/CropImage", JsonHelper.GetJson(new string[] { "value", "after","id" },
+                        new string[] { mu.UserFace, "changeFace","UserFace" }))
+	       </td></tr>
+        </tbody>
+        <tbody id="Tabs2" style="display:none;">
+        <tr>
+        <td colspan="2">
+        <li class="fd_item">
+        <div class="fd_item_head"><div class="fd_alias">自我介绍</div></div>
+        <div class="fd_item_field"><textarea id="tbSign" name="tbSign" class="form-control" rows="8" placeholder="幸福是什么呢？不就是两人牵手偕老过一辈子吗？我已经准备迎接心爱的人，但不知道我的她在哪里？希望你尽早出现！">@basemu.Sign</textarea></div>
+        </li>
+        </td>
+        </tr>
+        </tbody>
+        <tbody id="Tabs3" style="display:none;">
+        <tr>
+            <td colspan="4">
+                @Html.Partial("Fields/Index_User_AddContent", (ZoomLaCMS.Models.Field.VM_FieldModel)ViewBag.htmlMod)
+            </td>
+        </tr>
+        </tbody>
+        <tbody id="Tabs4" style="display:none;">
+        <tr>
+        <td colspan="2">
+            <div class="hobby">
+                <div class="media">
+                    <div class="media-left media-middle">生活方式</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic1.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic2.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic3.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic4.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic5.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic6.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic7.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic8.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic9.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic10.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic11.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic12.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle">宠物</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic13.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic14.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic15.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic16.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic17.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic18.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic19.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic20.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle blue">运动健身</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic21.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic22.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic23.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic24.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic25.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic26.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle blue">户外运动</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic27.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic28.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic29.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic30.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic31.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic32.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic33.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic34.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle blue">球类运动</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic35.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic36.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic37.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic38.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic39.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic40.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic41.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic42.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle red">休闲方式</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic43.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic44.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic45.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic46.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic47.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic48.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic49.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic50.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic51.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic52.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic53.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic54.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle red">旅游</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic55.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic56.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic57.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic58.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic59.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic60.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle yellow">美食</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic61.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic62.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic63.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic64.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic65.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic66.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic67.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic68.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic69.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic70.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic71.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic72.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left media-middle yellow">饮品</div>
+                    <div class="media-body media-middle">
+                    <ul>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic73.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic74.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic75.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic76.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic77.jpg" alt="" /></a><div></div></li>
+                    <li><a href="#"><img src="/Template/MeiHe/style/images/user_pic78.jpg" alt="" /></a><div></div></li>
+                    <div class="clearfix"></div>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="btn_green text-center margin_bottom20"><input type="submit" id="btnSave" class="btn btn-primary" onclick="return SaveAdress()" value="更新信息"></div>
+
+<div class="u_sign" id="u_UserInfo"></div>
+<input type="hidden" id="UserFieldCount_Hid" />
+</form>
+</div>
+</div>
+</div>
+<div class="container"><div class="user_ad"><a href="#"><img src="@MvcHtmlString.Create(Call.GetLabel("{$CssDir/}"))images/home_ad.jpg" alt="" /></a></div></div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"全站底部\"/}"))
+}
+@section script{
+<style type="text/css">
+    .modal {z-index: 10000;}
+    .cutImg {width: 1100px;}
+    .fd_item{list-style-type:none;}
+</style>
+<script src="/JS/DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="/JS/Common.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/ZL_Content.js"></script>
+<script>
+    //判断div元素是否满屏，不满则自动补充高度，
+    $(function (e) {
+        $("#prefile_img").hide();
+        if ($(".u_footer").position().top + $(".u_footer").outerHeight() < window.innerHeight)
+            $(".u_footer").height(window.innerHeight - $(".u_footer").position().top - 3);//-3为减去div的border-top高度，否则出现滚动条
+        if ("@Request.QueryString["sel"]" == "Tabs1") {
+            $(".nav-tabs li").removeClass("active");
+            $(".nav-tabs li:eq(2)").addClass("active");
+        }
+        $("form").validate();
+    });
+    $(function () {
+        switchTab("@Request.QueryString["sel"]");
+        var pcc = new ZL_PCC("tbProvince", "tbCity", "tbCounty");
+        if ($("#address").val() != "") {
+            var attr = $("#address").val().split(',');
+            pcc.SetDef(attr[0], attr[1], attr[2]);
+        }
+        pcc.ProvinceInit();
+    });
+    function SaveAdress() {
+        $("#address").val($("#tbProvince").val() + ',' + $("#tbCity").val() + ',' + $("#tbCounty").val());
+        return true;
+    }
+    function SetCutPic() {
+        var ipath = $("#UserFace_t").val();
+        console.log(ipath);
+        if (!ipath) { alert("请先指定头像"); return; }
+        ShowComDiag("/Plugins/PicEdit/CutPic_User.aspx?ipath=" + ipath, "图片编辑");
+    }
+    function setCutUrl(url) {
+        $("#UserFace_Img").attr("src", url);
+        $("#UserFace").val(url);
+    }
+    function PageCallBack(action, url, pval) {
+        $("#UserFace").val(url);
+        $("#UserFace_Img").attr("src", url + "?" + Math.random());
+        CloseComDiag();
+    }
+    $("#mimenu_btn").click(function (e) {
+        if ($(".user_mimenu_left").width() > 0) {
+            $(".user_mimenu_left ul").fadeOut(100);
+            $(".user_mimenu_left").animate({ width: 0 }, 200);
+        }
+        else {
+            $(".user_mimenu_left").animate({ width: 150 }, 300);
+            $(".user_mimenu_left ul").fadeIn();
+        }
+    });
+    //会员搜索
+    $("#sub_btn").click(function (e) {
+        if ($("#key").val() == "")
+            alert("搜索关键字为空!");
+        else
+            window.location = "/User/SearchResult?key=" + escape($("#key").val());
+    });
+    //搜索回车事件
+    function IsEnter(obj) {
+        if (event.keyCode == 13) {
+            $("#sub_btn").click(); return false;
+        }
+    }
+    function switchTab(id) {
+        $("."+id).addClass("active").siblings("li").removeClass("active");
+        $("#"+id).show().siblings("tbody").hide();
+    }
+    $(".hobby .media-body div").click(function() {
+        if($(this).hasClass("active")){
+            $(this).removeClass("active");
+        }else $(this).addClass("active");
+    });
+</script>
+}

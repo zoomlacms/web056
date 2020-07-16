@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>352</LabelID>
+    <LabelName>首页美荷推荐</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,6,1,显示数</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_UserBase ON ZL_User.UserID=ZL_UserBase.UserID</LabelTable>
+    <LabelField>ZL_User.UserID,UserName,salt,City,County,Province,Sign</LabelField>
+    <LabelWhere>Status=0 And ZL_User.UserID &lt;&gt; {ZL:GetuserID()/}</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"&gt;
+&lt;div class="home_groom_list"&gt;
+&lt;div class="media"&gt;
+&lt;div class="media-left media-middle"&gt;
+&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;&lt;img src="{Field="salt"/}" alt="{Field="UserName"/}" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="media-body media-middle"&gt;
+&lt;h4&gt;&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;{Field="UserName"/}&lt;/a&gt;&lt;/h4&gt;
+&lt;span&gt;{Field="Province"/}{Field="City"/}{Field="County"/}&lt;/span&gt;
+&lt;p&gt;{Field="Sign"/}&lt;/p&gt;
+&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;查看资料&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_UserBase"}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

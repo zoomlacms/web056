@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>355</LabelID>
+    <LabelName>相似的人_列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>Province,,1,省|ShowNum,6,1,显示数|hyzk,,1,婚姻状况</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_UserBase ON ZL_User.UserID=ZL_UserBase.UserID</LabelTable>
+    <LabelField>ZL_User.UserID,salt,UserName,City,County,Province,hyzk</LabelField>
+    <LabelWhere>Status=0 And ZL_User.UserID &lt;&gt; {ZL:GetuserID()/} And Province like '%@Province%' And hyzk like '%@hyzk%' And GroupID in (1,2)</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;div class="swiper-slide"&gt;
+&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;
+&lt;div class="gallery_pic"&gt;&lt;img src="{Field="salt"/}" onerror="javascript:this.src='/images/userface/noface.png'" alt="{Field="UserName"/}" /&gt;&lt;/div&gt;
+&lt;span&gt;{Field="UserName"/}&lt;/span&gt;
+&lt;p&gt;{Field="hyzk"/} {Field="Province"/}&lt;/p&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_UserBase"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

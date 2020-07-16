@@ -1,0 +1,119 @@
+﻿@using ZoomLa.Model;
+@using ZoomLa.Model.User;
+@using ZoomLa.Common;
+@model ZoomLa.Model.M_UserInfo
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    M_PointGrounp pgMod = (M_PointGrounp)ViewBag.pgMod;
+    M_Uinfo basemu = (M_Uinfo)ViewBag.basemu;
+}
+@section head{
+    <title>会员中心-@Call.SiteName</title>
+}
+@section content{
+    @RenderPage("~/Areas/User/Views/Shared/ASCX/DefaultTop.cshtml")
+<div class="container">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+<div class="user_info">
+<a href="/user/Info/UserBase?sel=Tabs1" class="user_info_face"><img src="" alt="" onerror="javascript:this.src='/images/userface/noface.png'"/></a>
+<p>
+<a href="#">上传照片</a>
+<a href="#">编辑资料</a>
+</p>
+<div><a href="#">我的等级：@pgMod.GroupName</a></div>
+<ul>
+<li><a href="#">1 <span>消息</span></a></li>
+<li><a href="#">1 <span>美荷豆</span></a></li>
+<li><a href="#">1 <span>订单</span></a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<div class="user_server">
+<div class="user_server_tit">推荐服务</div>
+<ul>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"首页输出推荐服务\" NodeID=\"7\" ShowNum=\"10\" /}"))
+</ul>
+</div>
+</div>
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+<div class="u_site margin_t5 hidden-xs">
+<ol class="breadcrumb">
+<li><a href="@Url.Action("Default","")">会员中心</a></li>
+<li class="active">功能引导</li>
+</ol>
+</div>
+<div class="u_menu">
+    <div class="row padding5">
+        @ViewBag.userhtml
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="u_menu_more text-center">
+    <a href="javascript:;" id="more_btn" title="点击显示更多">More <i class="fa fa-angle-double-down"></i></a>
+</div>
+<div class="user_menu_sub">
+    <ul class="list-unstyled text-center">
+
+        @ViewBag.ontherhtml
+    </ul>
+    <div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="container"><div class="user_ad"><a href="#"><img src="@MvcHtmlString.Create(Call.GetLabel("{$CssDir/}"))images/home_ad.jpg" alt="" /></a></div></div>
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"全站底部\"/}"))
+}
+@section script{
+<script>
+    $().ready(function (e) {//菜单颜色配置
+        var colorArr = new Array('rgba(83,177,232,0.7)', 'rgba(87,162,206,0.7)', 'rgba(108,208,231,0.7)', 'rgba(62,181,237,0.7)', 'rgba(45,144,190,0.7)', 'rgba(66,135,167,0.7)', 'rgba(76,201,229,0.7)', 'rgba(1,187,229,0.7)', 'rgba(34,175,194,0.7)', 'rgba(140,212,255,0.7)', 'rgba(2,157,250,0.7)', 'rgba(2,204,250,0.7)');
+        var count = $(".user_menu_sub li").length;
+        for (var i = 0; i < count; i++) {
+            $(".user_menu").eq(i).css("background", colorArr[i % 12]);
+        }
+        if ($(".user_menu_sub li").length < 1)
+            $(".u_menu_more").remove();
+        $.post("/Common/API/Notify.ashx?action=list", "{}", function (data) {
+            console.log("msg:" + data);
+        })
+    })
+    $("#mimenu_btn").click(function (e) {
+        if ($(".user_mimenu_left").width() > 0) {
+            $(".user_mimenu_left ul").fadeOut(100);
+            $(".user_mimenu_left").animate({ width: 0 }, 200);
+        }
+        else {
+            $(".user_mimenu_left").animate({ width: 150 }, 300);
+            $(".user_mimenu_left ul").fadeIn();
+        }
+    });
+    //会员菜单更多显示/隐藏
+    $("#more_btn").click(function (e) {
+        if ($(".user_menu_sub").css("display") == "none") {
+            $(".user_menu_sub").slideDown();
+            $(this).find("i").removeClass("fa-angle-double-down");
+            $(this).find("i").addClass("fa-angle-double-up");
+        }
+        else {
+            $(".user_menu_sub").slideUp(200);
+            $(this).find("i").removeClass("fa-angle-double-up");
+            $(this).find("i").addClass("fa-angle-double-down");
+        }
+    });
+    //会员搜索
+    $("#sub_btn").click(function (e) {
+        if ($("#key").val() == "")
+            alert("搜索关键字为空!");
+        else
+            window.location = "/User/Common/SearchResult?key=" + escape($("#key").val());
+    });
+    //搜索回车事件
+    function IsEnter(obj) {
+        if (event.keyCode == 13) {
+            $("#sub_btn").click(); return false;
+        }
+    }
+</script>
+}

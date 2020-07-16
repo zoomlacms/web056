@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>346</LabelID>
+    <LabelName>活动列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,20,1,分页显示数|sysNum,100,1,简介长度|NodeID,2,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_party ON ZL_CommonModel.ItemID=ZL_C_party.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_CommonModel.TopImg,ZL_C_party.dd,ZL_C_party.hdtj,ZL_C_party.sj,ZL_C_party.synopsis,ZL_C_party.zt</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;&lt;Img src="{ZL:GetPicUrl({Field="TopImg"/})/}" alt="{Field="Title"/}" /&gt;&lt;/a&gt;
+&lt;p&gt;
+&lt;strong&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;{Field="Title"/}&lt;/a&gt;&lt;/strong&gt;
+&lt;b&gt;时间：&lt;/b&gt;{Field="sj"/}&lt;br/&gt;
+&lt;b&gt;地点：&lt;/b&gt;{Field="dd"/}&lt;br/&gt;
+&lt;b&gt;简介：&lt;/b&gt;{ZL:CutText({Field="synopsis"/},@sysNum,..)/}&lt;br/&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" class="btn btn-default"&gt;查看详情&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+{/Repeate}
+{ZL.Page/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_party"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

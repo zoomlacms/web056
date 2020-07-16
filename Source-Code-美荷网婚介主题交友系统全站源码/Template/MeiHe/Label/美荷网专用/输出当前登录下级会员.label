@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>357</LabelID>
+    <LabelName>输出当前登录下级会员</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_Group ON ZL_User.GroupID=ZL_Group.GroupID</LabelTable>
+    <LabelField>UserName,UserID,[PERMISSIONS] as TrueName,UserPwd,ZL_Group.GroupName,Purse,JoinTime,UserPoint,LoginTimes</LabelField>
+    <LabelWhere>ParentUserID={ZL:GetuserID()/}</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;tr&gt;
+&lt;td&gt;{Field="UserID"/}&lt;/td&gt;
+&lt;td&gt;&lt;a href="/Class_3/NodeNews.aspx?UserID={Field="UserID"/}"&gt;{Field="UserName"/}&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;{Field="TrueName"/}&lt;/td&gt;
+&lt;td&gt;{Field="GroupName"/}&lt;/td&gt;
+&lt;td&gt;{ZL:GetMoney({Field="Purse"/},2,1)/}&lt;/td&gt;
+&lt;td&gt;{Field="JoinTime"/}&lt;/td&gt;
+&lt;td&gt;{ZL:GetMoney({Field="UserPoint"/},2,1)/}&lt;/td&gt;
+&lt;td&gt;{Field="LoginTimes"/}&lt;/td&gt;
+&lt;td&gt;&lt;a href="/Admin/User/Addon/UserLogin.aspx?uname={Field="UserName"/}&amp;upwd={Field="UserPwd"/}"&gt;&lt;i class="fa fa-external-link"&gt;&lt;/i&gt;登录&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+{/Repeate}
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_Group"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

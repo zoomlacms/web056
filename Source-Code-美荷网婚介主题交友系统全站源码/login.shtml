@@ -1,0 +1,350 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>美荷网-真实相聚</title>
+<meta name="Keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/JS/jquery.min.js" ></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<link href="/dist/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="/Template/MeiHe/style/global.css?Version=20170501473379" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+</head>
+<style>
+.home_nav { margin-bottom:0;}
+.weui-label { font-weight:400; margin-bottom:0;}
+</style>
+<body>
+<div class="home_nav" id="home_nav">
+<nav class="navbar navbar-default">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="/Template/MeiHe/style/images/logo.svg" alt="美荷网" /></a>
+<div class="home_logo_text"><span class="site_span">上海</span> <span class="site_ch">[切换城市]<span class="caret"></span></span></div>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li class="active"><a href="/default.aspx">主页</a></li>
+<li><a href="/Class_6/NodePage.aspx">我的</a></li>
+<li><a href="/Class_1/Default.aspx">邂逅</a></li>
+<li><a href="/Class_2/Default.aspx">互动</a></li>
+<li><a href="/user/Message/Message">消息</a></li>
+<li><a href="/Class_9/NodePage.aspx">搜索发现</a></li>
+<li><a href="/Class_3/Default.aspx">红娘</a></li>
+<!--<li><a href="/Class_4/Default.aspx">线下俱乐部</a></li>-->
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+</div>
+<!--头部结束-->
+
+<div class="index_list">
+<ul>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/dai/user/admin1/20171107/pniazk.jpg" alt="admin" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/demo2/201709290902avjh.jpg" alt="demo" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/金狮蓝蒂3/2017092908595ulq.jpg" alt="金狮蓝蒂" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/炭香园自助烧烤4/201709290903fdek.jpg" alt="炭香园自助烧烤" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410183721r9ke.jpg" alt="爱上木数码" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/201704101838227qrw.jpg" alt="达芙妮鞋店" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410183855uwtz.jpg" alt="梵蒂冈超市" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/201704101839368krp.jpg" alt="瑞士军刀" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184016b6hd.jpg" alt="百斯盾" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184441vhsl.jpg" alt="艾玛" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184524h7uz.jpg" alt="键昌家园" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184609egib.jpg" alt="沃尔玛" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184647c46j.jpg" alt="夏威夷果农" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184718wltp.jpg" alt="旧金山海归" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/images/singlef/20170410184752m9e4.jpg" alt="农家乐" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/意中人16/201709290907cxwg.jpg" alt="意中人" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/点点17/20170929090714ma.jpg" alt="点点" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/小薇18/201709290908i0yt.jpg" alt="小薇" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/user/lisa19/201709290912kbia.jpg" alt="Lisa" /></a></li>
+
+<li><a href="/default.aspx"><img src="/images/userface/noface.png" alt="suger" /></a></li>
+
+<li><a href="/default.aspx"><img src="/uploadfiles/dai/user/小希21/20171028/uywtph.jpg" alt="小希" /></a></li>
+
+<div class="clearfix"></div>
+</ul>
+<div class="index_login">
+<div role="tabpanel" class="home_tabs_mes">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">注册</a></li>
+<li role="presentation"><a href="#message1" aria-controls="message1" role="tab" data-toggle="tab">登录</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active" id="message">
+<h3>创建账号 缘分速达</h3>
+<form action="/User/Index/Register_Submit?ReturnUrl=/User" method="post">
+<div class="weui-cells weui-cells_form" style="margin-bottom:1em; margin-top:0;">
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
+<div class="weui-cell__bd">
+<input type="text" id="TxtUserName" name="TxtUserName" class="form-control" placeholder="用户名" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+<div class="weui-cell__bd">
+<input type="password" id="TxtPassword" name="TxtPassword" class="form-control" placeholder="密码" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">确认密码</label></div>
+<div class="weui-cell__bd">
+<input type="text" id="TxtPwdConfirm" name="TxtPwdConfirm" class="form-control" placeholder="确认密码" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+<div class="weui-cell__bd">
+<div id="trVcodeRegister">
+<div class="input-group vcode_wrap">
+<input type="text" id="VCode" name="VCode" maxlength="6" class="form-control" style="border-right:none;" placeholder="验证码" autocomplete="off">
+<span class="input-group-addon" style="background-color:#fff;padding:0 2px;position:relative;">
+<span style="position:absolute;left:-25px;z-index:100;top:10px;" class="vcode_check"></span>
+<img id="VCode_img" title="点击刷新验证码" class="codeimg" style="max-width:130px;" src="/Common/ValidateCode.aspx?key=0.944323&amp;t=0.913733952659477">
+</span>
+</div>
+<input type="hidden" id="VCode_hid" name="VCode_hid">
+<script>
+    (function ($) {
+        $.fn.extend({
+            ValidateCode: function (options, callback) {//callback暂未用
+                var opts = $.extend({}, $.fn.ValidateCode.defaults, options), CodeCheck = $.fn.ValidateCode.CodeCheck;
+                var isok = false;
+                var obj = this;//text
+                if (!obj || obj == null || !obj.attr("id")) return;
+                var $wrap = $(obj).closest(".vcode_wrap");
+                var objimg = $("#" + obj[0].id + "_img");
+                var objhid = $("#" + obj[0].id + "_hid");
+                //提交的信息
+                var model = { vtype: 0, token: "", sid: Math.random().toFixed(6), name: "VCode" };
+                objimg.attr("src", "/Common/ValidateCode.aspx?key=" + model.sid + "&t=" + Math.random());
+                //----事件
+                objimg.click(function () {
+                    var url = "/Common/ValidateCode.aspx?key=" + model.sid + "&t=" + Math.random();
+                    $(this).attr("src", url); obj.val(""); obj.keyup(); obj.focus();
+                });
+                $(obj).keyup(function () {
+                    var v = $(obj).val(), k = model.sid;
+                    if (v.length < opts.num) { return; }
+                    else if (v.length == opts.num) { model.token = v; objhid.val(JSON.stringify(model)); }
+                    //--------------------
+                    var $check = $wrap.find(".vcode_check");
+                    $check.html('<i class="fa fa-close" style="color:#ed6d6d;position:static;"></i>');
+                    CodeCheck(v, k, function (data) {
+                        console.log(data);
+                        if (data == 0) {
+                            $check.html('<i class="fa fa-close" style="color:#ed6d6d;position:static;"></i>');
+                            isok = false;
+                        }
+                        else if (data == 1) {
+                            $check.html('<i class="fa fa-check" style="color:#b9f373;position:static;"></i>');
+                            isok = true;
+                        }
+                    });
+                });//keyup end;
+                if (opts.submitchk)//提交验证
+                {
+                    $(obj).parent("form").submit(function (e) {
+                        var v = $(obj).val();
+                        if (v.length < opts.num) { isok = false; }
+                        if (isok == false) { alert("验证码不正确"); }
+                        return isok;
+                    });
+                }
+            }
+        })//fn end;
+        $.fn.ValidateCode.defaults = { okcss: "codeok", nocss: "codeno", num: 6, submitchk: true };//参数赋值
+        $.fn.ValidateCode.CodeCheck = function (v, k, callback) {
+            a = "checkcode";
+            $.ajax({
+                type: "Post",
+                async: true,
+                url: "/Common/ValidateCode.aspx",
+                data: { action: a, value: v, key: k },
+                success: function (data) {
+                    callback(data);
+                }
+            });
+        };
+    })(jQuery)
+    $("#VCode").ValidateCode();
+</script>
+    </div>
+</div>
+</div>
+</div>
+<button class="btn btn-warning btn-block btn-lg" type="submit">立即注册</button>
+</form>
+</div>
+<div role="tabpanel" class="tab-pane" id="message1">
+<h3>登录账号 缘分的开始</h3>
+<div class="weui-cells weui-cells_form" style="margin-bottom:1em; margin-top:0;">
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">用户名</label></div>
+<div class="weui-cell__bd">
+<input type="text" id="UName" class="form-control" onkeydown="return GetEnterCode('focus','UPSD');" placeholder="用户名" />
+</div>
+</div>
+<div class="weui-cell">
+<div class="weui-cell__hd"><label class="weui-label">密码</label></div>
+<div class="weui-cell__bd">
+<input type="password" id="UPSD" class="form-control" onkeydown="return GetEnterCode('click','home_ulogin_btn');" placeholder="密码" />
+</div>
+</div>
+</div>
+<button class="btn btn-warning btn-block btn-lg" id="home_ulogin_btn" type="button" onclick="LoginFun()" data-enter="3">马上登录</button>
+<p><a href="/User/Change/GetPassword">忘记密码？</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+<div class="home_footer">
+<div class="container">
+<ul>
+<li><a href="/Item/1.aspx">关于美荷</a></li>
+<li><a href="/Item/2.aspx">联系我们</a></li>
+<li><a href="/Item/3.aspx">招贤纳士</a></li>
+<li><a href="/Item/4.aspx">帮助中心</a></li>
+<li><a href="/Item/5.aspx">服务条款</a></li>
+<li><a href="/Item/6.aspx">隐私保护</a></li>
+<li><a href="/Item/7.aspx">交友安全</a></li>
+<li><a href="/Guest">意见反馈</a></li>
+<li><a href="/Class_6/NodeNews.aspx">网站地图</a></li>
+<div class="clearfix"></div>
+</ul>
+<p>客服微信：meiheapp   客服邮箱：service@meiheapp.com</p>
+<div style="margin-top:5em;"><script src="/js/mobile.js"></script>
+Copyright &copy; 2017 All Rights Reserved 上海美荷文化发展有限公司  版权所有</div>
+</div>
+</div>
+<script src="/JS/Modal/APIResult.js"></script>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<script>
+/*获取验证码*/
+function GetEnterCode(a, id) {
+    if (event.keyCode == 13) {
+        switch (a) { case "click": $("#" + id).trigger("click"); break; case "focus": $("#" + id).focus(); break; }
+        return false;
+    }
+    else { return true; }
+}
+function EnableCode() {
+	if ($(".code").is(":hidden")) {
+		$("#code_li").show();
+		$(".code").show();
+		$("#VCode_img").click();
+		$("#VCode").ValidateCode();
+	}
+}
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag){
+    data=JSON.parse(data);
+    window.location.href="/Class_6/NodePage.aspx";
+	}
+});
+function LoginFun()
+{
+	var buser = new B_User();
+	var model = { name: $("#UName").val(), pwd: $("#UPSD").val() };
+	if (model.name == "" || model.pwd == "")
+	{
+		$("#UName").popover({
+			animation: true,
+			placement: 'top',
+			content: '<span style="color:red;">用户名或密码不能为空</span>',
+			html: true,
+			trigger:'manual',
+			delay: { show: 10000, hide: 100 }
+		});
+		$("#UName").popover('show');
+		setTimeout(function () { $("#UName").popover('destroy'); }, 2000);
+		return;
+	}
+	$("#home_ulogin_btn").attr('disabled', 'disabled');
+	$("#home_ulogin_btn").val('登录中...');
+	buser.Login(model, function (data) {
+		$("#home_ulogin_btn").removeAttr('disabled');
+		$("#home_ulogin_btn").val('登录');
+		if (data == -1) {
+			$("#UPSD").popover({
+				animation: true,
+				placement: 'top',
+				content: '<span style="color:red;">用户名或密码错误</span>',
+				html: true,
+				trigger: 'manual',
+				delay: { show: 10000, hide: 100 }
+			});
+			$("#UPSD").popover('show');
+			setTimeout(function () { $("#UPSD").popover('destroy'); }, 2000);
+		}
+		else if (data == -10) {
+			$("#UPSD").popover({
+				animation: true,
+				placement: 'top',
+				content: '<span style="color:red;">用户名或密码错误</span>',
+				html: true,
+				trigger: 'manual',
+				delay: { show: 10000, hide: 100 }
+			});
+			$("#UPSD").popover('show');
+			setTimeout(function () { $("#UPSD").popover('destroy'); }, 2000);
+		}
+		else {
+      //此处写登录成功后需要执行的事件
+      data=JSON.parse(data);
+      window.location.href="/Class_6/NodePage.aspx";
+		}
+	});
+}
+</script>
+</body>
+</html>

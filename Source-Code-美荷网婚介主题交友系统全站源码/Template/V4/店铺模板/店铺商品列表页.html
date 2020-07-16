@@ -1,0 +1,144 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{ZL.Label id="输出指定ID节点名" NodeID="{$GetRequest(NodeID)$}" /}_{ZL.Label id="输出指定店铺名称" UserShopID="{$GetRequest(ID)$}" /}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<script src="{$CssDir/}js/server.js"></script>
+<script src="/js/scrolltopcontrol.js"></script>
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<style>
+.bs-header { margin-top:0;}
+</style>
+</head>
+<body>
+<div class="container myTop">
+<div class="row">
+<div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+<div id="logo"><a href="/" target="_blank"><img src="{$LogoUrl/}" alt="{$SiteName/}" /></a></div>
+</div>
+<div class="col-lg-7 col-md-3 col-sm-3 col-xs-12">
+<div id="TopNavBar">
+<ul>
+<li class="set_home"><a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$SiteURL/}');" href="#">设为首页</a></li>
+<li class="havior"><a href="javascript:window.external.addFavorite('{$SiteURL/}','{$SiteName/}');">加入收藏</a></li>
+<li class="non"><a href="/user/">登录</a></li>
+<li class="non"><a href="/user/Register">注册</a></li> 
+<li class="non">{ZL:Big5()/}</li> 
+</ul>
+</div>
+<form action="/search/SearchList" method="get" >
+<div class="pull-right searchtxt">
+<div class="input-group pull-right" style="width:200px;">
+<input name="keyword" type="text" id="TxtKeyword" class="form-control" placeholder="全站搜索" style="width:150px;" />
+<span class="input-group-btn">
+<input type="submit" name="Button1" value="搜索" id="Button1" class="btn btn-default" />
+</span>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="relative">
+<nav class="navbar navbar-default usershop_nav" role="navigation" id="usershop_nav">
+<div class="container padding0_lg">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand visible-xs" href="/Store/StoreIndex?id={$GetRequest(ID)$}">{ZL.Label id="输出指定店铺名称" UserShopID="{$GetRequest(ID)$}" /}</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="/Store/StoreIndex?id={$GetRequest(ID)$}">店铺首页</a></li>
+<li id="usershop_node128"><a href="{ZL:GetNodeLinkUrl(128)/}?id={$GetRequest(ID)$}">公司介绍</a></li>
+<li id="usershop_node124"><a href="{ZL:GetNodeLinkUrl(124)/}?id={$GetRequest(ID)$}">店铺公告</a></li>
+<li id="usershop_node3"><a href="{ZL:GetNodeLinkUrl(3)/}?id={$GetRequest(ID)$}">店铺商品</a></li>
+<li id="usershop_node125"><a href="{ZL:GetNodeLinkUrl(125)/}?id={$GetRequest(ID)$}">促销信息</a></li>
+<li id="usershop_node127"><a href="{ZL:GetNodeLinkUrl(127)/}?id={$GetRequest(ID)$}">人才招聘</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<!--导航到此结束-->
+
+<div class="bs-header">
+<div class="container">
+<h1>{ZL.Label id="输出指定店铺名称" UserShopID="{$GetRequest(ID)$}" /}</h1>
+<p>脚比路更长+服务到现场+智慧的思想....</p>
+</div>
+</div>
+<!--banner结束-->
+
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-sm-3 col-md-3 col-xs-12">
+{ZL.Label id="输出指定店铺左侧信息" UserShopID="{$GetRequest(ID)$}" /}
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+{ZL.Label id="循环输出店铺节点列表" NodeID="{$GetRequest(NodeID)$}" UserShopID="{$GetRequest(ID)$}" /}
+</div>
+</div>
+
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="mySites margintop10">
+<ul class="breadcrumb">
+<li><a href="/Store/StoreIndex?id={$GetRequest(ID)$}">店铺首页</a></li>
+{ZL.Label id="输出多级店铺节点导航_V4" NodeID="{$GetRequest(NodeID)$}" ShowNum="30" UserShopID="{$GetRequest(ID)$}" /}
+<li class="active">商品列表</li>
+</ul>
+</div>
+
+<div class="margintop10">
+{ZL.Label id="店铺商品列表_分页" TitleNum="25" ShowNum="20" UserShopID="{$GetRequest(ID)$}" ClassName="col-lg-3 col-md-3 col-sm-3 col-xs-6" NodeID="{$GetRequest(NodeID)$}" /}
+</div>
+</div>
+
+</div>
+</div>
+ 
+
+
+{ZL.Label id="响应式全站底部"/}
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('usershop_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ //]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+$().ready(function(e) {
+	$("#usershop_node3").addClass("active");
+	$("#accordion .panel:nth-child(1) .panel-collapse").addClass("in");
+});
+</script>

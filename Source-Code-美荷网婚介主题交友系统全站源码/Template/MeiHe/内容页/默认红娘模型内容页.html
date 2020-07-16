@@ -1,0 +1,34 @@
+{ZL.Source id="红娘模型数据源标签" /}
+<!DOCTYPEHTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>{SField sid="红娘模型数据源标签" FD="Title" page="0"/}</title>
+{ZL:Boot()/}
+<meta name="Keywords" content="{SField sid="红娘模型数据源标签" FD="Tagkey" page="0" /}">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+	
+</head>
+<body>
+{ZL.Label id="全站头部"/}
+
+<div class="container meihe_info">
+	 <div class="row">
+		<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-md-12 col-12 meihe_info-img"><img src="{ZL:GetPicUrl({SField sid="红娘模型数据源标签" FD="hntx" page="0"/})/}" alt=""></div>
+		<div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-md-12 col-12 meihe_info-t">
+			<span>红娘名字:</span>
+		 	<div>{SField sid="红娘模型数据源标签" FD="Title" page="0"/}</div>
+			<span>所在地区：</span>
+			<div>{ZL.Label id="输出指定ID节点名" NodeID="{SField sid="红娘模型数据源标签" FD="NodeID" page="0"/}" /}</div>
+			
+			<span>一句简介：</span>
+		 <div>{SField sid="红娘模型数据源标签" FD="synopsis" page="0"/}</div>
+			<span>详细介绍：</span>
+			<div>{SField sid="红娘模型数据源标签" FD="content" page="0"/}</div>
+		 </div>
+	</div>
+</div> 
+	
+{ZL.Label id="全站底部"/}	
+</body>
+</html>

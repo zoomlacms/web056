@@ -1,0 +1,265 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$SiteName/}_{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head> 
+<body>
+{ZL.Label id="全站头部"/}
+
+<div class="container">
+<div class="well">您现在搜索的是：{$GetUrldecode({$GetRequest(city)$})$} {$GetUrldecode({$GetRequest(hyzk)$})$} {$GetUrldecode({$GetRequest(sx)$})$} {$GetUrldecode({$GetRequest(xx)$})$} {$GetUrldecode({$GetRequest(mz)$})$}</div>
+<div class="user_filter">
+<form action="/Class_9/NodeNews.aspx">
+<div class="media">
+<div class="media-left"><span>所在地区：</span></div>
+<div class="media-body">
+<select name="city" class="form-control">
+<option value="" selected="selected">不限</option>
+<option value="北京">北京</option>
+<option value="上海">上海</option>
+<option value="天津">天津</option>
+<option value="重庆">重庆</option>
+<option value="河北省">河北省</option>
+<option value="江苏省">江苏省</option>
+<option value="安徽省">安徽省</option>
+<option value="福建省">福建省</option>
+<option value="甘肃省">甘肃省</option>
+<option value="广东省">广东省</option>
+<option value="广西省">广西省</option>
+<option value="贵州省">贵州省</option>
+<option value="海南省">海南省</option>
+<option value="河南省">河南省</option>
+<option value="黑龙江">黑龙江</option>
+<option value="湖北省">湖北省</option>
+<option value="湖南省">湖南省</option>
+<option value="吉林省">吉林省</option>
+<option value="江西省">江西省</option>
+<option value="辽宁省">辽宁省</option>
+<option value="内蒙古">内蒙古</option>
+<option value="宁夏">宁夏</option>
+<option value="青海省">青海省</option>
+<option value="山东省">山东省</option>
+<option value="山西省">山西省</option>
+<option value="陕西省">陕西省</option>
+<option value="四川省">四川省</option>
+<option value="西藏">西藏</option>
+<option value="新疆">新疆</option>
+<option value="浙江省">浙江省</option>
+<option value="云南省">云南省</option>
+</select>
+</div>
+</div>
+<div class="media">
+<div class="media-left"><span>婚姻状况：</span></div>
+<div class="media-body">
+<select name="hyzk" class="form-control">
+<option value="" selected="selected">不限</option>
+<option value="未婚">未婚</option>
+<option value="离异">离异</option>
+<option value="丧偶">丧偶</option>
+<option value="已婚">已婚</option>
+</select>
+</div>
+</div>
+<div class="media">
+<div class="media-left"><span>生肖属相：</span></div>
+<div class="media-body">
+<select name="sx" class="form-control">
+<option value="" selected="selected">不限</option>
+<option value="鼠">鼠</option>
+<option value="牛">牛</option>
+<option value="虎">虎</option>
+<option value="兔">兔</option>
+<option value="龙">龙</option>
+<option value="蛇">蛇</option>
+<option value="马">马</option>
+<option value="羊">羊</option>
+<option value="猴">猴</option>
+<option value="鸡">鸡</option>
+<option value="狗">狗</option>
+<option value="猪">猪</option>
+</select>
+</div>
+</div>
+<div class="media">
+<div class="media-left"><span>血型：</span></div>
+<div class="media-body">
+<select name="xx" class="form-control">
+<option value="" selected="selected">不限</option>
+<option value="a型">A型</option>
+<option value="b型">B型</option>
+<option value="ab型">AB型</option>
+<option value="o型">O型</option>
+<option value="其它">其它</option>
+</select>
+</div>
+</div>
+<div class="media">
+<div class="media-left"><span>民族：</span></div>
+<div class="media-body">
+<select name="mz" class="form-control">
+<option value="" selected="selected">不限</option>
+<option value="汉族">汉族</option>
+<option value="蒙古族">蒙古族</option>
+<option value="回族">回族</option>
+<option value="藏族">藏族</option>
+<option value="维吾尔族">维吾尔族</option>
+<option value="苗族">苗族</option>
+<option value="彝族">彝族</option>
+<option value="壮族">壮族</option>
+<option value="布衣族">布衣族</option>
+<option value="朝鲜族">朝鲜族</option>
+<option value="满族">满族</option>
+<option value="其它民族">其它民族</option>
+</select>
+</div>
+</div>
+<button type="submit" class="btn btn-warning">搜索</button>
+</form>
+</div>
+
+<div class="user_list">
+<ul class="user_list_u">
+{ZL.Label id="输出用户列表_筛选" ShowNum="16" city="{$GetUrldecode({$GetRequest(city)$})$}" hyzk="{$GetUrldecode({$GetRequest(hyzk)$})$}" sx="{$GetUrldecode({$GetRequest(sx)$})$}" xx="{$GetUrldecode({$GetRequest(xx)$})$}" mz="{$GetUrldecode({$GetRequest(mz)$})$}" /}
+</ul>
+</div>
+</div>
+
+{ZL.Label id="会员发消息"/}
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<link href="/Plugins/Third/alert/sweetalert.css" rel="stylesheet" />
+<script src="/Plugins/Third/alert/sweetalert.min.js?v=1"></script>
+<script>
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_user a").html(data.UserName);
+        $(".home_user").removeClass("hidden");
+        $(".home_logout").removeClass("hidden");
+		$(".home_register").hide();
+        $(".home_login").hide();
+	}else{
+        location.href="/User/Login?ReturnUrl="+window.location.pathname;
+    }
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+$("#nid{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}").addClass("active");
+
+$().ready(function(e) {
+   $(".user_filter option[value='"+"{$GetUrldecode({$GetRequest(city)$})$}"+"']").attr("selected","selected");
+   $(".user_filter option[value='"+"{$GetUrldecode({$GetRequest(hyzk)$})$}"+"']").attr("selected","selected");
+   $(".user_filter option[value='"+"{$GetUrldecode({$GetRequest(sx)$})$}"+"']").attr("selected","selected");
+   $(".user_filter option[value='"+"{$GetUrldecode({$GetRequest(xx)$})$}"+"']").attr("selected","selected");
+   $(".user_filter option[value='"+"{$GetUrldecode({$GetRequest(mz)$})$}"+"']").attr("selected","selected");
+});
+
+var userid;
+function GetMessage(){
+    $("#dzh").hide();
+    var content = $(".getMsg_div input[checked='checked']").siblings("span").html();
+    $.post("/API/Center.ashx?action=msg_send",{type:0,uid:userid,content:content},function(data){
+        if(data.result!="" || data.result!=null){
+            swal({
+              title: "成功",
+              text: "对方已收到您的打招呼消息",
+              type: "success",
+              showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "好的",
+              closeOnConfirm: false
+            });
+        }
+    });
+}
+
+function SetMessage(){
+    $("#fxx").hide();
+    var content = $("#mes").val();
+    $.post("/API/Center.ashx?action=msg_send",{type:1,uid:userid,content:content},function(data){
+        if(data.result!="" || data.result!=null){
+            swal({
+              title: "成功",
+              text: "对方已收到您发送的消息",
+              type: "success",
+              showCancelButton: true,
+              confirmButtonColor: "#DD6B55",
+              confirmButtonText: "好的",
+              closeOnConfirm: false
+            });
+        }
+    });
+}
+
+function cloMes(){
+    $("#dzh").hide();
+    $("#fxx").hide();
+}
+
+function message(type,uid){
+    if(uid>=0) userid=uid;
+    if(type==0){
+        $("#dzh").show();
+    }else if(type==1){
+        $("#fxx").show();
+    }
+}
+
+$(".home_nav .navbar-nav .dropdown").mouseover(function(){
+  $(this).addClass("open");
+}).mouseout(function(){
+  $(this).removeClass("open");
+});
+</script>

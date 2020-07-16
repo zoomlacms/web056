@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>350</LabelID>
+    <LabelName>输出用户列表_筛选</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数|city,,1,|hyzk,,1,|sx,,1,|xx,,1,|mz,,1,</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_UserBase ON ZL_User.UserID=ZL_UserBase.UserID</LabelTable>
+    <LabelField>ZL_User.UserID,salt,City,County,Province,UserName</LabelField>
+    <LabelWhere>Status=0 And ZL_User.UserID &lt;&gt; {ZL:GetuserID()/} And Province like '%@city%' And hyzk like '%@hyzk%' And sxzx like '%@sx%' And xx like '%@xx%' And mz like '%@mz%' And GroupID in (1,2)</LabelWhere>
+    <LabelOrder>LastActiveTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;&lt;img src="{Field="salt"/}" alt="{Field="UserName"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif'" /&gt;&lt;/a&gt;
+&lt;div class="user_list_info"&gt;
+&lt;p&gt;&lt;a href="/Class_9/Default.aspx?UserID={Field="UserID"/}"&gt;{Field="UserName"/}&lt;/a&gt;&lt;/p&gt;
+&lt;div&gt;&lt;span&gt;{Field="Province"/}{Field="City"/}{Field="County"/}&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="icon"&gt;&lt;a href="javascript:;" onClick="message(0,{Field="UserID"/});"&gt;打招呼&lt;/a&gt;&lt;a href="javascript:;" onClick="message(1,{Field="UserID"/});"&gt;发消息&lt;/a&gt;&lt;/div&gt;
+&lt;/li&gt;
+{/Repeate}
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+{ZL.Page id="响应式列表分页v4"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_UserBase"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

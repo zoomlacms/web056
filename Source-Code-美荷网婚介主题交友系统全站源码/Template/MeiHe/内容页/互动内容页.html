@@ -1,0 +1,164 @@
+{ZL.Source id="活动模型数据源标签" /}
+<!DOCTYPEHTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="Keywords" content="{SField sid="活动模型数据源标签" FD="Tagkey" page="0" /}">
+<title>{SField sid="活动模型数据源标签" FD="Title" page="0"/}</title>
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/JS/Controls/B_User.js"></script>
+<link rel="stylesheet" href="/dist/css/swiper.min.css">
+<script src="/dist/js/swiper.min.js"></script>
+</head>
+<body>
+{ZL.Label id="全站头部"/}
+<div class="container hd_box">
+<div class="hn_l">
+<div class="hd_l_t"><h2>{SField sid="活动模型数据源标签" FD="Title" page="0"/}</h2></div>
+<div class="hd_interact">
+<div class="hd_interact_l">
+<div class="panel panel-danger">
+<div class="panel-heading">
+<h3 class="panel-title"><strong>活动已结束！</strong></h3>
+</div>
+<div class="panel-body">
+<label for="name">3</label>人已报名
+<br>报名已经截止！下次提早点哦~
+</div>
+</div>
+</div>
+<div class="member_show hd_interact_r">
+<!-- Swiper -->
+<div class="swiper-container gallery-top">
+<div class="swiper-wrapper">
+<script>
+var pics='{SField sid="活动模型数据源标签" FD="hdtj" page="0"/}';
+var jsonstr=JSON.parse(pics);
+if(jsonstr.length>0)
+{
+	for(i=0;i<jsonstr.length;i++)
+	{
+		document.write('<div class="swiper-slide"><img src="/UploadFiles/'+jsonstr[i].url+'" mid="/UploadFiles/'+jsonstr[i].url+'" big="/UploadFiles/'+jsonstr[i].url+'" alt="'+jsonstr[i].desc+'"></div>');
+	}
+}
+</script>
+</div>
+<!-- Add Arrows -->
+<div class="swiper-button-next swiper-button-white"></div>
+<div class="swiper-button-prev swiper-button-white"></div>
+</div>
+<div class="swiper-container gallery-thumbs">
+<div class="swiper-wrapper">
+<script>
+var pics='{SField sid="活动模型数据源标签" FD="hdtj" page="0"/}';
+var jsonstr=JSON.parse(pics);
+if(jsonstr.length>0)
+{
+	for(i=0;i<jsonstr.length;i++)
+	{
+		document.write('<div class="swiper-slide"><img src="/UploadFiles/'+jsonstr[i].url+'" mid="/UploadFiles/'+jsonstr[i].url+'" big="/UploadFiles/'+jsonstr[i].url+'" alt="'+jsonstr[i].desc+'"></div>');
+	}
+}
+</script>
+</div>
+</div>
+<!-- Swiper JS -->
+</div>
+</div>
+</div>
+</div>
+
+<div class="container hd_date">
+<div class="hn_l hd_date_c">
+<strong>活动时间</strong>
+<p>{SField sid="活动模型数据源标签" FD="sj" page="0"/}</p>
+<strong>活动地点</strong>
+<p>{SField sid="活动模型数据源标签" FD="dd" page="0"/}</p>
+<strong>活动简介</strong>
+<p>{SField sid="活动模型数据源标签" FD="content" page="0"/}</p>
+<strong>活动详情</strong>
+<p>{SField sid="活动模型数据源标签" FD="sj" page="0"/}</p>
+
+</div>
+</div>
+{ZL.Label id="全站底部"/}  
+</body>
+</html>
+
+<script>
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_user a").html(data.UserName);
+        $(".home_user").removeClass("hidden");
+        $(".home_logout").removeClass("hidden");
+		$(".home_register").hide();
+        $(".home_login").hide();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+<!-- Initialize Swiper -->
+var galleryTop = new Swiper('.hd_interact_r .gallery-top', {
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 10,
+});
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+    spaceBetween: 10,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    touchRatio: 0.2,
+    slideToClickedSlide: true
+   
+});
+galleryTop.params.control = galleryThumbs;
+galleryThumbs.params.control = galleryTop;
+
+$("#nid{SField sid="活动模型数据源标签" FD="FirstNodeID" page="0"/}").addClass("active");    
+</script>

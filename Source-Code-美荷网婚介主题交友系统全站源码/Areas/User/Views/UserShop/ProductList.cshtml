@@ -1,0 +1,100 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@using ZoomLa.BLL
+@using ZoomLa.Controls
+@{
+    B_Node nodeBll = new B_Node();
+    C_TreeView treeMod = new C_TreeView()
+    {
+        NodeID = "NodeID",
+        NodeName = "NodeName",
+        NodePid = "ParentID",
+        DataSource = nodeBll.GetAllUserShopNode(),
+        liAllTlp = "<a href='ProductList'>全部商品</a>",
+        LiContentTlp = "<a href='ProductList?NodeID=@NodeID'>@NodeName</a>",
+        SelectedNode = Request["NodeID"]
+    };
+}
+@section head{
+<title>商品列表</title>
+<style type="text/css">
+.container{width:1500px;}
+</style>
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="store"></div> 
+<div class="container">
+<ol class="breadcrumb">
+<li><a title="会员中心" href="@Url.Action("Default","")">会员中心</a></li>
+<li><a href="ProductList">店铺商品管理</a></li>
+</ol>
+</div>
+<div class="container">
+    <div>@Html.Partial("UserShopTop")</div>
+<div style="margin-top: 10px;">
+    <div class="col-md-3" style="padding-left:0;">
+        @Html.Partial("_treeview",treeMod)
+    </div>
+    <div class="col-md-9" style="padding-right:0;">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td width="34%" align="center">
+                    商品管理：
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            商品管理 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="SelShopNode">添加商品</a></li>
+                            <li><a href="ProductList?type=0">商品管理</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" id="NodeID" value="@Request["NodeID"]" class="mvcparam"/>
+                </td>
+                <td width="66%" align="center">
+                    <div class="input-group" style="width:518px;">
+                        <span class="input-group-addon">高级查询</span>
+                        <select ID="souchtable" class="form-control text_md">
+                            <option Value="1" selected="selected">商品名称</option>
+                            <option Value="2">商品简介</option>
+                            <option Value="3">商品介绍</option>
+                            <option Value="4">厂商</option>
+                            <option Value="5">品牌/商标</option>
+                            <option Value="6">条形码</option>
+                        </select>
+                        <input type="text" ID="KeyWord" class="form-control text_md mvcparam" placeholder="请输入关键词" />
+                        <span class="input-group-btn">
+                            <input type="button" value="搜索" class="btn btn-primary" onclick="mvcpage.load();" />
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        @Html.Partial("ProductList_List",Model)
+        <div class="text-center btn_green">
+            <input type="button" class="btn btn-primary" value="开始销售" onclick="mvcpage.bat({ url: 'product_op?a=addsale', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="设为热卖" onclick="mvcpage.bat({ url: 'product_op?a=addhot', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="设为精品" onclick="mvcpage.bat({ url: 'product_op?a=addgood', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="设为新品" onclick="mvcpage.bat({ url: 'product_op?a=addnew', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="停止销售" onclick="mvcpage.bat({ url: 'product_sale?a=removesale', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="取消热卖" onclick="mvcpage.bat({ url: 'product_sale?a=removehot', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="取消精品" onclick="mvcpage.bat({ url: 'product_sale?a=removegood', after: 'reload' });" />
+            <input type="button" class="btn btn-primary" value="取消新品" onclick="mvcpage.bat({ url: 'product_sale?a=removenew', after: 'reload' });" />
+            <input type="button" class="btn btn-danger" value="批量删除" onclick="mvcpage.bat({ url: 'product_del',confirm:'确定要删除商品吗', after: 'reload' });" />
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+}
+@section script{
+<script>
+$(function () {
+    if (getParam("quicksouch")) {
+        $("li a[href='#Tabs" + getParam("quicksouch") + "']").parent().addClass("active").siblings("li").removeClass("active");
+    }
+})
+</script>
+}

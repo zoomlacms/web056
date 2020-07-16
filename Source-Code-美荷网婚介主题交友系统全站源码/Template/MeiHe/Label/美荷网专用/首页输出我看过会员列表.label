@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>358</LabelID>
+    <LabelName>首页输出我看过会员列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美荷网专用</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_Hits</LabelTable>
+    <LabelField>Gid</LabelField>
+    <LabelWhere>Uid={ZL:GetuserID()/} group by GID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;a href="/Class_9/Default.aspx?UserID={Field="Gid"/}"&gt;{ZL.Label id="获取指定用户头像" UserID="{Field="Gid"/}" /}&lt;/a&gt;
+&lt;h5&gt;&lt;a href="/Class_9/Default.aspx?UserID={Field="Gid"/}"&gt;{ZL.Label id="获取指定用户名" UserID="{Field="Gid"/}" /}&lt;/a&gt;&lt;/h5&gt;
+&lt;div&gt;{ZL.Label id="获取指定会员省份" UserID="{Field="Gid"/}" /}&lt;/div&gt;
+&lt;p&gt;&lt;a href="javascript:;" onclick="message(0,{Field="Gid"/})"&gt;打招呼&lt;/a&gt;&lt;a href="javascript:;" onclick="message(1,{Field="Gid"/})"&gt;发消息&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>5</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Hits","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

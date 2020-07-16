@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{$SiteName/}_首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+<div class="home_nav" id="home_nav">
+<nav class="navbar navbar-default">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img src="{$CssDir/}images/logo.svg" alt="{$SiteName/}" /></a>
+<div class="home_logo_text"><span class="site_span">上海</span> <span class="site_ch">[切换城市]<span class="caret"></span></span></div>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li class="active"><a href="/default.aspx">主页</a></li>
+<li class="dropdown">
+<a href="{ZL:GetNodeLinkUrl(1)/}">邂逅 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">喜欢</a></li>
+<li><a href="#">不喜欢</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="{ZL:GetNodeLinkUrl(2)/}">互动 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="{ZL:GetNodeLinkUrl(13)/}">最新活动</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(14)/}">往期活动</a></li>
+</ul>
+</li>
+<li><a href="/user/Message/Message">消息</a></li>
+<li class="dropdown">
+<a href="{ZL:GetNodeListUrl(9)/}">搜索发现 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="{ZL:GetNodeListUrl(9)/}">搜索</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(8)/}">发现</a></li>
+</ul>
+</li>
+<li><a href="{ZL:GetNodeLinkUrl(3)/}">红娘</a></li>
+<li class="dropdown">
+<a href="#">我的美荷 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="#">我的资料</a></li>
+<li><a href="#">择偶意向</a></li>
+<li><a href="#">账号设置</a></li>
+<li><a href="javascript:;" onClick="LogoutFun();">退出</a></li>
+</ul>
+</li>
+<!--<li><a href="{ZL:GetNodeLinkUrl(4)/}">线下俱乐部</a></li>-->
+<li class="home_register"><a href="/User/Register">注册</a></li>
+<li class="home_login"><a href="/User/info/UserBase?sel=Tabs0">登录</a></li>
+<li class="home_user hidden"><a href="/User/info/UserBase?sel=Tabs0"></a></li>
+<li class="home_logout hidden"><a href="javascript:;" onClick="LogoutFun();">退出</a></li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+</div>
+<!--头部结束-->
+
+<div class="container">
+<div class="home_mes">
+<div class="home_mes_info">
+<a href="/User">
+<img src="{ZL.Label id="获取当前用户头像" /}" alt="{ZL.Label id="获取当前用户真实姓名" /}" onerror="javascript:this.src='/images/userface/noface.png'"/>
+<p class="name">{ZL.Label id="获取当前用户真实姓名" /}</p>
+</a>
+<div class="home_mes_list">
+<p>资料完整度</p>
+<p><span>前去完善</span></p>
+<ul>
+<li><a href="#"><img src="{$CssDir/}images/home_icon1.png" alt="" /></a></li>
+<li><a href="#"><img src="{$CssDir/}images/home_icon2.png" alt="" /></a></li>
+<li><a href="#"><img src="{$CssDir/}images/home_icon3.png" alt="" /></a></li>
+<li><a href="#"><img src="{$CssDir/}images/home_icon4.png" alt="" /></a></li>
+<li><a href="#"><img src="{$CssDir/}images/home_icon5.png" alt="" /></a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+<ul>
+<li>
+<a href="#">
+<span>0</span>
+<p>未读消息</p>
+</a>
+</li>
+<li>
+<a href="#">
+<span>0</span>
+<p>我的订单</p>
+</a>
+</li>
+<div class="clearfix"></div>
+</ul>
+<a class="jinru btn" href="{ZL:GetNodeListUrl(6)/}">进入我的美荷</a>
+</div>
+</div>
+</div>
+<!--个人信息结束-->
+
+<div class="container">
+<div class="home_ser">
+<div class="home_ser_tit">服务推荐</div>
+<ul class="media-list">
+<li class="media">
+<a href="#">
+<div class="media-left media-middle"><span><img src="{$CssDir/}images/home_ser1.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>双节狂欢</h4>
+<p>恋爱神器买一送六</p>
+</div>
+</a>
+</li>
+<li class="media">
+<a href="#">
+<div class="media-left media-middle"><span><img src="{$CssDir/}images/home_ser1.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>双节狂欢</h4>
+<p>恋爱神器买一送六</p>
+</div>
+</a>
+</li>
+<li class="media">
+<a href="#">
+<div class="media-left media-middle"><span><img src="{$CssDir/}images/home_ser1.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>双节狂欢</h4>
+<p>恋爱神器买一送六</p>
+</div>
+</a>
+</li>
+<li class="media">
+<a href="#">
+<div class="media-left media-middle"><span><img src="{$CssDir/}images/home_ser1.png" alt="" /></span></div>
+<div class="media-body media-middle">
+<h4>双节狂欢</h4>
+<p>恋爱神器买一送六</p>
+</div>
+</a>
+</li>
+<div class="clearfix"></div>
+</ul>
+</div>
+</div>
+<!--滑动门和服务推荐结束-->
+
+<div class="container margin_bottom20">
+<div class="home_pic_tit">
+优质会员
+<ul hidden="">
+<li><label>我要找：</label>
+<div class="">
+<select>
+<option value="0">女友</option>
+<option value="1">男友</option>
+</select>
+</div>
+</li>
+</ul>
+</div>
+<div class="row margin_0">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
+<div class="home_pic_list">
+<ul>
+{ZL.Label id="首页输出优质会员" ShowNum="10" /}
+<div class="clearfix"></div>
+</ul>
+</div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding0">
+<div class="home_pic_list">
+<ul>
+{ZL.Label id="首页输出优质会员_除前十" ShowNum="10" /}
+<div class="clearfix"></div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!--优质会员结束-->
+
+<div class="container margin_bottom20 hidden">
+<div class="home_ad">
+<a href="#"><img src="{$CssDir/}images/home_ad.jpg" alt="" /></a>
+</div>
+</div>
+<!--广告-->
+
+<div class="container margin_bottom20">
+<div class="home_groom_tit">美荷推荐<a href="{ZL:GetNodeListUrl(9)/}">更多 >></a></div>
+<div class="row">
+{ZL.Label id="首页美荷推荐" ShowNum="6" /}
+</div>
+</div>
+<!--美荷推荐结束-->
+
+<div class="container margin_bottom20">
+<div class="home_story_tit">成功故事<a href="#">谱写自己的幸福 ></a></div>
+<div class="home_story_list">
+<ul>
+<li class="active"><a href="#"><img src="{$CssDir/}images/home_pic2.jpg" alt="" /></a><label>夫妻相</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic3.jpg" alt="" /></a><label>裸婚</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic4.jpg" alt="" /></a><label>心有灵犀</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic5.jpg" alt="" /></a><label>命中注定</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic6.jpg" alt="" /></a><label>夫妻相</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic7.jpg" alt="" /></a><label>一见钟情</label></li>
+<li><a href="#"><img src="{$CssDir/}images/home_pic8.jpg" alt="" /></a><label>俊男美女</label></li>
+</ul>
+</div>
+</div>
+<!--成就故事结束-->
+
+<div class="container">
+<div class="home_server_tit">红娘服务 <a href="#">免费体验红娘服务 ></a></div>
+<div class="home_server_ad"><a href="#"><img src="{$CssDir/}images/home_ser1.jpg" alt=""></a></div>
+<div class="home_server_tit">百合活动 <a href="#">更多 ></a></div>
+<div class="home_server_ad"><a href="#"><img src="{$CssDir/}images/home_ac1.jpg" alt=""></a></div>
+<div class="home_server_tit">媒体指导 <a href="#">更多 ></a></div>
+<div class="home_server_ad"><a href="#"><img src="{$CssDir/}images/home_ser1.jpg" alt=""></a></div>
+<hr>
+</div>
+
+<div class="home_footer">
+<div class="container">
+<p>客服微信：meiheapp   客服邮箱：service@meiheapp.com</p>
+<div style="margin-top:5em;">{$Copyright/}</div>
+</div>
+</div>
+</body>
+</html>
+<script>
+//手机下右侧导航菜单效果
+$(function () {
+    $('button.navbar-toggle').click(function () {
+        $('body').toggleClass('out');
+        $('nav.navbar-fixed-top').toggleClass('out');
+        if ($('body').hasClass('out')) {
+            $(this).focus();
+        }
+        else {
+            $(this).blur();
+        }
+    });
+});
+$(document).click(function (e) {
+    if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+        e.preventDefault();
+        $('button.navbar-toggle').trigger('click');
+    }
+}).keyup(function (e) {
+    if (e.keyCode == 27 && $('body').hasClass('out')) {
+        $('button.navbar-toggle').trigger('click');
+    }
+});
+
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".home_user a").html(data.UserName);
+        $(".home_user").removeClass("hidden");
+        $(".home_logout").removeClass("hidden");
+		$(".home_register").hide();
+        $(".home_login").hide();
+	}else{
+        location.href="/User/Login?ReturnUrl="+window.location.pathname;
+    }
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+$(".home_nav .navbar-nav .dropdown").mouseover(function(){
+  $(this).addClass("open");
+}).mouseout(function(){
+  $(this).removeClass("open");
+});
+
+$().ready(function(e) {
+    $(".home_pic_list li:nth-child(3)").addClass("active");
+    $(".home_pic_list li:nth-child(4)").addClass("active");
+});
+</script>

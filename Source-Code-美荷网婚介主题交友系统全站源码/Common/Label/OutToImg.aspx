@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="OutToImg.aspx.cs" Inherits="ZoomLaCMS.Common.Label.OutToImg" %>

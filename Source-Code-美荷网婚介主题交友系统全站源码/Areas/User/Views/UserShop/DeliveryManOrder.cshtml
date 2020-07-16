@@ -1,0 +1,23 @@
+﻿@model ZoomLa.SQLDAL.SQL.PageSetting
+@{
+    
+}
+@section head{
+    <title>订单结算</title>
+}
+@section content{
+<div id="pageflag" data-nav="shop" data-ban="store"></div>
+<div class="container margin_t5">
+    <ol class="breadcrumb">
+        <li><a title="会员中心" href="/User/Default">会员中心</a></li>
+        <li><a href="ProductList">我的店铺</a></li>
+        <li class="active">订单结清</li>
+    </ol>
+</div>
+<div class="container">
+    @Html.Partial("DeliveryManOrder_List")
+</div>
+}
+@section script{
+
+}
